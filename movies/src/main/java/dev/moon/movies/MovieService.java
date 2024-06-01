@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class MovieService {
   @Autowired
   private MovieRepository movieRepository;
-  public List<Movie> allMovies(){
-      return movieRepository.findAll();
-    }
 
+  public List<Movie> allMovies() {
+    return movieRepository.findAll();
+  }
 
-    public Optional<Movie> singleMovie(ObjectId id){
-      return movieRepository.findById(id);
-    }
-    
+  public Optional<Movie> singleMovie(String imdbid) {
+    return movieRepository.findMovieByImdbId(imdbid);
+  }
+
 }
